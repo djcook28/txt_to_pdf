@@ -16,4 +16,8 @@ for filepath in filepaths:
     pdf.add_page()
     pdf.cell(w=50, h=16, txt=f'{filename.title()}', ln=1)
 
+    with open(filepath, "r") as file:
+        pdf.set_font(family="Times", size=8, style='B')
+        pdf.multi_cell(w=0, h=8, txt=file.read())
+
 pdf.output("PDFs/output.pdf")
